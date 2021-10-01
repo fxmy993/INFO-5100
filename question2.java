@@ -1,6 +1,5 @@
 package edu.northeastern.fxmy;
 
-import static edu.northeastern.fxmy.Main.print;
 
 public class question2 {
 
@@ -14,6 +13,7 @@ public class question2 {
         print(Res2);
     }
 
+
     public static void print(int[] nums){
         for(int i = 0;i<nums.length;i++){
             System.out.print(nums[i]+",");
@@ -21,6 +21,7 @@ public class question2 {
         System.out.println();
     }
 
+    //Time: O(n) Space: O(1)
     private static int[] question2(int[] nums) {
         int[] res = new int[nums.length];
         int low = 0;

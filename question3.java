@@ -14,6 +14,7 @@ public class question3 {
         System.out.println(res1);
     }
 
+    //Time: O(n) Space: O(n)
     private static int question3(int[] nums){
         Map<Integer,Integer> map = new HashMap<>();
         int res = 0;

@@ -11,6 +11,7 @@ public class question4 {
         System.out.println(res1);
     }
 
+    //Time: O(m+n) Space: O(1)
     private static boolean question4(String ransomNote, String magazine) {
         int[] arr = new int[128];
 

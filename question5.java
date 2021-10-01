@@ -11,7 +11,7 @@ public class question5 {
         System.out.println(res1);
     }
 
-
+//Time: O(n) Space: O(1)
     private static boolean question5(String str){
         if(str.length()<=1)
             return true;

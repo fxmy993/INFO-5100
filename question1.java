@@ -13,6 +13,7 @@ public class question1 {
         System.out.println(question1Res1+" "+question1Res2);
     }
 
+    //Time:O(n) Space:O(n)
     private static int question1(int[] nums) {
         Map<Integer,Integer> map = new HashMap<>();
         int count = 0;
