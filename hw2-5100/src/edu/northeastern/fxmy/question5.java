@@ -11,45 +11,42 @@ public class question5 {
 
     //Time: O(m*n) Space: O(n)
     public static List<Integer> spiralOrder(int[][] matrix) {
-
-        List<Integer> res = new ArrayList<Integer>();
-
-        if (matrix.length == 0) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        List res = new ArrayList();
+        if(m+n<1){
+            res.add(matrix[0][0]);
             return res;
         }
-
-        int rowBegin = 0;
-        int rowEnd = matrix.length-1;
-        int colBegin = 0;
-        int colEnd = matrix[0].length - 1;
-
-        while (rowBegin <= rowEnd && colBegin <= colEnd) {
-            for (int j = colBegin; j <= colEnd; j ++) {
-                res.add(matrix[rowBegin][j]);
-            }
-            rowBegin++;
-
-            for (int j = rowBegin; j <= rowEnd; j ++) {
-                res.add(matrix[j][colEnd]);
-            }
-            colEnd--;
-
-            if (rowBegin <= rowEnd) {
-                for (int j = colEnd; j >= colBegin; j --) {
-                    res.add(matrix[rowEnd][j]);
-                }
-            }
-            rowEnd--;
-
-            if (colBegin <= colEnd) {
-                for (int j = rowEnd; j >= rowBegin; j --) {
-                    res.add(matrix[j][colBegin]);
-                }
-            }
-            colBegin ++;
+        int x = 0;
+        while(x<m&&x<n&&matrix[x][x]!=101){
+            moveAround(matrix,x,res,m,n);
+            x++;
         }
-
         return res;
+    }
+
+    public static void moveAround(int[][] matrix,int x,List res,int m,int n){
+        for(int i = x;i<n-x-1;i++){
+            res.add(matrix[x][i]);
+            matrix[x][i] = 101;
+        }
+        for(int i = x;i<m-x-1;i++){
+            res.add(matrix[i][n-x-1]);
+            matrix[i][n-x-1] = 101;
+        }
+        for(int i = n-x-1;i>=x;i--){
+            if(matrix[m-x-1][i] == 101)
+                break;
+            res.add(matrix[m-x-1][i]);
+            matrix[m-x-1][i] = 101;
+        }
+        for(int i = m-x-2;i>=x+1;i--){
+            if(matrix[i][x] == 101)
+                break;
+            res.add(matrix[i][x]);
+            matrix[i][x] = 101;
+        }
     }
 
     private static void print(List a){
