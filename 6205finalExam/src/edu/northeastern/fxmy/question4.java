@@ -22,13 +22,15 @@ public class question4 {
             char[] word1 = words[i-1].toCharArray();
             char[] word2 = words[i].toCharArray();
 
-            if(word2.length<word1.length)
-                return false;
             int wordMax = Math.min(word1.length,word2.length);
-            for(int j = 0;j<word1.length;j++){
+            for(int j = 0;j<wordMax;j++){
+                if(map.get(word1[j])<map.get(word2[j]))
+                    break;
                 if(map.get(word1[j])>map.get(word2[j])){
                     return false;
                 }
+                if(j==wordMax-1&&j<word1.length-1)
+                    return false;
             }
         }
 
