@@ -24,12 +24,9 @@ public class question4 {
 
             if(word2.length<word1.length)
                 return false;
-
             int wordMax = Math.min(word1.length,word2.length);
-            for(int j = 0;j<wordMax;j++){
-                if(map.get(word1[j])<map.get(word2[j])){
-                    return true;
-                }else if(map.get(word1[j])>map.get(word2[j])){
+            for(int j = 0;j<word1.length;j++){
+                if(map.get(word1[j])>map.get(word2[j])){
                     return false;
                 }
             }
